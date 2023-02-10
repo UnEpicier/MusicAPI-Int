@@ -1,0 +1,6 @@
+{
+  "ignore": [".git", "node_modules"],
+  "watch": ["./"],
+  "exec": "npm run compile && npx ts-node src/app.ts",
+  "ext": "ts"
+}

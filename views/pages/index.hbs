@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/css/pages/index.css">
+
+<form class="header" method="post">
+    <h1 class="title">Music API</h1>
+    
+    <div class="searchbar">
+        <div class="dropdown">
+            <p>By group name</p>
+            <input type="hidden" value="By group name">
+            <ion-icon name="chevron-down-outline"></ion-icon>
+            <div class="select">
+                <span>By id</span>
+                <span class="selected">By group name</span>
+                <span>By member name</span>
+                <span>By creation date</span>
+            </div>
+        </div>
+        <input type="text" class="search" name="search" placeholder="Search...">
+        <button type="submit" class="submit">
+            <ion-icon name="search-outline"></ion-icon>
+        </button>
+    </div>
+</form>
+
+<script src="/js/index.js"></script>

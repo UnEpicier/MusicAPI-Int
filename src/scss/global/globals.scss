@@ -1,0 +1,46 @@
+@import "reset";
+@import "fonts";
+@import "variables";
+
+/*
+ ! Globals
+ */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Assistant", sans-serif;
+}
+
+html,
+body {
+	scroll-behavior: smooth;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	width: 100%;
+	min-height: 100vh;
+	background: #f8f9fa;
+	overflow-x: hidden;
+	transition: 0.5s;
+}
+
+::selection {
+	background: #212529;
+	color: #f8f9fa;
+}
+
+.hidden {
+	display: none !important;
+}
+
+@media screen and (max-width: 992px) {
+	html,
+	body {
+		min-height: 100%;
+	}
+}
