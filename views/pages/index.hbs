@@ -6,10 +6,9 @@
     <div class="searchbar">
         <div class="dropdown">
             <p>By group name</p>
-            <input type="hidden" value="By group name">
+            <input type="hidden" name="by" value="By group name">
             <ion-icon name="chevron-down-outline"></ion-icon>
             <div class="select">
-                <span>By id</span>
                 <span class="selected">By group name</span>
                 <span>By member name</span>
                 <span>By creation date</span>
@@ -21,5 +20,38 @@
         </button>
     </div>
 </form>
+
+<hr class="separator">
+
+<div class="results">
+
+    {{#if data}}
+        {{#each data}}
+        <div class="card">
+            <div class="row">
+                <img src="http://localhost:3000/{{this.image}}" class="cover" alt="cover">
+                <div class="col">
+                    <p class="name">{{this.name}}</p>
+                    <div class="space-between">
+                        <p>{{this.creationDate}}</p>
+                        <p>{{this.firstAlbum}}</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="card-sep">
+            <ul class="card-list">
+                {{#each this.members}}
+                <li class="card-element">{{.}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        {{/each}}
+    {{else}}
+        <p class="error">
+           Any group found.
+        </p>
+    {{/if}}
+
+</div>
 
 <script src="/js/index.js"></script>

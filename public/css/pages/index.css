@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 200px auto 0;
+  margin: 100px auto 0;
   width: 95%;
   max-width: 650px;
 }
@@ -90,6 +90,86 @@
   font-size: 1.2rem;
   font-weight: 300;
   color: #212529;
+}
+
+.separator {
+  margin: 30px auto;
+  background: #212529;
+  width: 85%;
+  max-width: 400px;
+}
+
+.any {
+  margin: 0 auto;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: rgba(33, 37, 41, 0.7);
+}
+
+.results {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.results > .card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid rgba(33, 37, 41, 0.5);
+  border-radius: 12px;
+  width: 95%;
+  max-width: 400px;
+}
+.results > .card > .row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.results > .card > .row > .cover {
+  margin-right: 15px;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+.results > .card > .row > .col {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+}
+.results > .card > .row > .col > .name {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #212529;
+}
+.results > .card > .row > .col > .space-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(33, 37, 41, 0.7);
+}
+.results > .card > .card-sep {
+  margin: 0 auto;
+  width: 60%;
+}
+.results > .card > .card-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.results > .card > .card-list > .card-element {
+  padding: 5px 7px;
+  border: 1px solid rgba(33, 37, 41, 0.5);
+  border-radius: 6px;
 }
 
 /*# sourceMappingURL=index.css.map */
