@@ -12,10 +12,45 @@
   font-weight: 300;
   color: #212529;
 }
+.header > .auth-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 50%;
+}
+.header > .auth-group > .auth {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 20px;
+  width: 50%;
+  border-radius: 6px;
+  border: 1px solid #212529;
+  background: #212529;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #f8f9fa;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.header > .auth-group > .auth--secondary {
+  background: transparent;
+  color: #212529;
+}
+.header > .auth-group > .auth:hover {
+  filter: brightness(125%);
+}
 .header > .searchbar {
   display: flex;
   flex-direction: row;
   align-items: stretch;
+  margin-top: 30px;
   border: 1px solid rgba(204, 204, 204, 0.5);
   border-radius: 6px;
   width: 100%;

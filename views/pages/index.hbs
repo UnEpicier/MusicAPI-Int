@@ -2,7 +2,23 @@
 
 <form class="header" method="post">
     <h1 class="title">Music API</h1>
-    
+
+    <div class="auth-group">
+        {{#if logged}}
+            <button type="button" class="auth" onclick="copyToken(this, '{{token}}')">
+                <ion-icon name="clipboard-outline"></ion-icon>
+                Copy token
+            </button>
+            <a href="/logout" class="auth auth--secondary">
+                <ion-icon name="log-out-outline"></ion-icon>
+                Logout
+            </a>
+        {{else}}
+            <a href="/login" class="auth">Login</a>
+            <a href="/register" class="auth auth--secondary">Register</a>
+        {{/if}}
+    </div>
+
     <div class="searchbar">
         <div class="dropdown">
             <p>By group name</p>

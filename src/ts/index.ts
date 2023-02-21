@@ -22,3 +22,12 @@ document.querySelectorAll(".select > *").forEach((value) => {
 		}
 	});
 });
+
+function copyToken(element: HTMLButtonElement, token: string) {
+	navigator.clipboard.writeText(token);
+	element.innerHTML = `<ion-icon name="checkmark-outline"></ion-icon> Copied!`;
+
+	setTimeout(() => {
+		element.innerHTML = `<ion-icon name="clipboard-outline"></ion-icon> Copy token`;
+	}, 3000);
+}

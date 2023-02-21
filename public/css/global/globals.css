@@ -144,7 +144,6 @@ body {
   min-height: 100vh;
   background: #f8f9fa;
   overflow-x: hidden;
-  transition: 0.5s;
 }
 
 ::selection {

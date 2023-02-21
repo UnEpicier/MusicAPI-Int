@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import { create } from "express-handlebars";
 import createError from "http-errors";
 import logger from "morgan";
+import cookieParser from "cookie-parser";
 import cors from "cors";
 import bodyParser from "body-parser";
 import helpers from "./helpers";
@@ -33,6 +34,7 @@ app.use(cors());
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 // Serve static files
 app.use(express.static(`${process.cwd()}/public`));

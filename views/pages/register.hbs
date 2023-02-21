@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="/css/pages/auth.css">
+<div class="container">
+    <h1 class="title">Register</h1>
+
+    <form method="post" class="form">
+        {{#if error}}
+            <span class="error">{{error}}</span>
+        {{/if}}
+        <input type="text" name="email" class="input" placeholder="Mail address" required>
+        <input type="password" name="password" class="input" placeholder="Password" required>
+        <input type="password" name="conf_password" class="input" placeholder="Confirm your password" required>
+
+        <button type="submit" class="submit">Register</button>
+    </form>
+    <a href="/login" class="link">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Login
+    </a>
+</div>
