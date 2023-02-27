@@ -7,6 +7,8 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
 const router = Router();
 
 const pool = mariadb.createPool({
@@ -14,9 +16,12 @@ const pool = mariadb.createPool({
 	user: process.env.DB_USER,
 	password: process.env.DB_PASS,
 	database: process.env.DB_NAME,
+	charset: "utf8mb4",
 });
 
-router.get("/", (req: Request, res: Response) => {
+const url = process.env.API_URL;
+
+router.get("/", async (req: Request, res: Response) => {
 	const { user } = req.cookies;
 
 	if (user) {
@@ -27,12 +32,13 @@ router.get("/", (req: Request, res: Response) => {
 			).then((rows: any) => {
 				if (rows[0].count == 1) {
 					fetch(
-						"http://localhost:3000/api/artists/e4250cc67e9ea027f647d026bfaaa69b60855d54fb2340dca66e36bdf137cba7"
+						`${url}/api/artists/e4250cc67e9ea027f647d026bfaaa69b60855d54fb2340dca66e36bdf137cba7`
 					)
 						.then((response) => response.json())
 						.then((data) => {
 							return res.render("pages/index", {
 								title: "Music API",
+								host: url,
 								logged: true,
 								token: rows[0].token,
 								data: data,
@@ -40,12 +46,13 @@ router.get("/", (req: Request, res: Response) => {
 						});
 				} else {
 					fetch(
-						"http://localhost:3000/api/artists/e4250cc67e9ea027f647d026bfaaa69b60855d54fb2340dca66e36bdf137cba7"
+						`${url}/api/artists/e4250cc67e9ea027f647d026bfaaa69b60855d54fb2340dca66e36bdf137cba7`
 					)
 						.then((response) => response.json())
 						.then((data) => {
 							return res.render("pages/index", {
 								title: "Music API",
+								host: url,
 								data: data,
 							});
 						});
@@ -53,13 +60,14 @@ router.get("/", (req: Request, res: Response) => {
 			});
 		});
 	} else {
-		fetch(
-			"http://localhost:3000/api/artists/e4250cc67e9ea027f647d026bfaaa69b60855d54fb2340dca66e36bdf137cba7"
+		await fetch(
+			`${url}/api/artists/e4250cc67e9ea027f647d026bfaaa69b60855d54fb2340dca66e36bdf137cba7`
 		)
 			.then((response) => response.json())
 			.then((data) => {
 				return res.render("pages/index", {
 					title: "Music API",
+					host: url,
 					data: data,
 				});
 			});
@@ -93,42 +101,46 @@ router.post("/", async (req: Request, res: Response) => {
 			.then((data) => {
 				res.render("pages/index", {
 					title: "Music API",
+					host: url,
 					data: data,
 				});
 			});
 	} else {
 		if (by == "By group name") {
 			fetch(
-				`http://localhost:3000/api/artists/name/${search}/e4250cc67e9ea027f647d026bfaaa69b60855d54fb2340dca66e36bdf137cba7`
+				`${url}/api/artists/name/${search}/e4250cc67e9ea027f647d026bfaaa69b60855d54fb2340dca66e36bdf137cba7`
 			)
 				.then((response) => response.json())
 				.then((data) => {
 					return res.render("pages/index", {
 						title: "Music API",
+						host: url,
 						logged: logged,
 						data: data,
 					});
 				});
 		} else if (by == "By member name") {
 			fetch(
-				`http://localhost:3000/api/artists/member/${search}/start/e4250cc67e9ea027f647d026bfaaa69b60855d54fb2340dca66e36bdf137cba7`
+				`${url}/api/artists/member/${search}/start/e4250cc67e9ea027f647d026bfaaa69b60855d54fb2340dca66e36bdf137cba7`
 			)
 				.then((response) => response.json())
 				.then((data) => {
 					return res.render("pages/index", {
 						title: "Music API",
+						host: url,
 						logged: logged,
 						data: data,
 					});
 				});
 		} else if (by == "By creation date") {
 			fetch(
-				`http://localhost:3000/api/artists/creation/${search}/e4250cc67e9ea027f647d026bfaaa69b60855d54fb2340dca66e36bdf137cba7`
+				`${url}/api/artists/creation/${search}/e4250cc67e9ea027f647d026bfaaa69b60855d54fb2340dca66e36bdf137cba7`
 			)
 				.then((response) => response.json())
 				.then((data) => {
 					return res.render("pages/index", {
 						title: "Music API",
+						host: url,
 						logged: logged,
 						data: data,
 					});
@@ -136,6 +148,7 @@ router.post("/", async (req: Request, res: Response) => {
 		} else {
 			return res.render("pages/index", {
 				title: "Music API",
+				host: url,
 				logged: logged,
 				data: null,
 			});
