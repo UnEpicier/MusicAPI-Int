@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="/css/docs/index.css">
+
+<div class="page">
+
+    <a href="/" class="back">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+        <span>Back to home</span>
+    </a>
+
+    <h1 class="title-1">
+        <ion-icon name="document-text-outline"></ion-icon>
+        Documentation
+    </h1>
+
+
+    <h3 class="title-3">
+        <ion-icon name="bookmark-outline"></ion-icon>
+        Table of contents
+    </h3>
+
+    <div class="list-container">
+        <ul class="list">
+            <a href="#requirements">
+                Requirements
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+            </a>
+            <a href="#usages">
+                Usages
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+            </a>
+            <ul class="list">
+                <a href="#all">
+                    Get All
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                </a>
+                <a href="#id">
+                    Get by: ID
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                </a>
+                <a href="#name">
+                    Get by: Group name
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                </a>
+                <a href="#member">
+                    Get by: Member name
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                </a>
+                <a href="#date">
+                    Get by: Creation date
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                </a>
+            </ul>
+        </ul>
+    </div>
+
+    <div class="separator"></div>
+
+    <h3 class="title-3" id="requirements">
+        <ion-icon name="alert-circle-outline"></ion-icon>
+        Requirements
+    </h3>
+
+    {{#if logged}}
+    <p>You only need to have your token to use this API.</p>
+    <button type="button" class="button" onclick="copyToken(this, '{{token}}')">
+        <ion-icon name="clipboard-outline"></ion-icon>
+        Copy token
+    </button>
+
+    {{else}}
+    <p>You only need to have an account to use this API.</p>
+    <div class="row">
+        <a href="/login" class="button">Login</a>
+        <a href="/register" class="button button--secondary">Register</a>
+    </div>
+    {{/if}}
+
+    <div class="separator"></div>
+
+    <h3 class="title-3" id="usages">
+        <ion-icon name="list-outline"></ion-icon>
+        Usages
+    </h3>
+
+    <div class="grid">
+
+        <div class="card">
+            <h4 class="title-4" id="all">
+                <ion-icon name="grid-outline"></ion-icon>
+                Get All
+            </h4>
+            <p>Get all groups without exceptions.</p>
+            <code class="stretch">
+<span class="func_name">fetch</span><span class="bracket">(</span><span class="quote">"</span><span class="func_param">https://10.107.1.14/api/artists/<span class="param">{token}</span>"</span><span class="bracket">)</span>
+<span class="func_name">.then</span><span class="brace">(</span><span class="bracket">(</span><span class="arrow_arg">response</span><span class="bracket">)</span><span class="arrow"> => </span><span class="arrow_arg">response</span>.<span class="func_name">json()</span><span class="brace">)</span>
+<span class="func_name">.then</span><span class="brace">(</span><span class="bracket">(</span><span class="arrow_arg">data</span><span class="bracket">)</span><span class="arrow"> => </span><span class="brace">{</span>
+    <span class="comment"># do your stuff...</span>
+<span class="brace">}</span><span class="bracket">)</span>;
+            </code>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/js/index.js"></script>

@@ -10,6 +10,7 @@ import helpers from "./helpers";
 
 // * ROUTER FILES HERE
 import main from "./router/main";
+import docs from "./router/docs";
 // * END ROUTER FILES
 
 dotenv.config();
@@ -41,6 +42,7 @@ app.use(express.static(`${process.cwd()}/public`));
 
 // * ADD ROUTERS TO EXPRESS HERE
 app.use(main);
+app.use(docs);
 // * END ROUTERS TO EXPRESS
 
 // Catch 404 and forward to error handler

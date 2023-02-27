@@ -1,0 +1,208 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  margin: 100px auto;
+  width: 90%;
+  max-width: 1200px;
+}
+.page > .back {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  text-decoration: none;
+  color: #212529;
+}
+.page > .back * {
+  transition: transform 0.3s ease;
+}
+.page > .back:hover > span {
+  transform: translateX(-5px);
+}
+.page .title-1,
+.page .title-2,
+.page .title-3,
+.page .title-4 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 300;
+}
+.page .title-1 > ion-icon,
+.page .title-2 > ion-icon,
+.page .title-3 > ion-icon,
+.page .title-4 > ion-icon {
+  opacity: 0.7;
+}
+.page .title-1 {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+.page .title-2 {
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+.page .title-3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.page .title-4 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+.page .separator {
+  display: block;
+  width: 20%;
+  height: 1px;
+  margin: 20px 0;
+  background-color: rgba(33, 37, 41, 0.3);
+}
+.page .list-container {
+  padding: 20px 15px;
+  border-radius: 12px;
+  background-color: rgba(33, 37, 41, 0.05);
+}
+.page .list-container > .list {
+  max-width: 300px;
+}
+.page .list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.page .list > .list {
+  background: none;
+  padding: 0;
+  padding-left: 25px;
+}
+.page .list > *:not(.list) {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 15px;
+  width: 100%;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.page .list > *:not(.list)::before {
+  content: "-";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  color: #212529;
+  transform: translateY(-50%);
+}
+.page .list > *:not(.list)[href]:hover {
+  background-color: rgba(33, 37, 41, 0.1);
+}
+.page .list > *:not(.list) > ion-icon {
+  opacity: 0;
+}
+.page .list > *:not(.list)[href] > ion-icon {
+  opacity: 0.7;
+}
+.page .row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 15px;
+}
+.page .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 20px;
+  border: 1px solid #212529;
+  border-radius: 6px;
+  background: #212529;
+  font-weight: 500;
+  color: #fff;
+  transition: 0.4s ease;
+}
+.page .button:hover {
+  opacity: 0.8;
+}
+.page .button--secondary {
+  background-color: transparent;
+  color: #212529;
+}
+.page .grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.page .grid > .card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 50%;
+  border-radius: 12px;
+  background-color: rgba(33, 37, 41, 0.05);
+}
+
+/* 
+    ! SPECIFICATIONS
+*/
+#requirements + p,
+#usages + p {
+  margin-bottom: 10px;
+}
+
+/*
+    ! CODE BLOCKS
+*/
+code.inline {
+  display: inline;
+  padding: 3px 5px;
+  background-color: rgba(33, 37, 41, 0.05);
+  border-radius: 6px;
+}
+
+code.stretch {
+  display: inline;
+  margin: 10px 0;
+  padding: 7px 15px;
+  background-color: #212529;
+  border-radius: 6px;
+  color: #fff;
+}
+
+code {
+  font-family: "JetBrainsMono Nerd Font", "Fira Code", sans-serif;
+  font-weight: normal;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+}
+code .func_name,
+code .bracket {
+  color: #e0aaff;
+}
+code .func_param,
+code .quote {
+  color: #ade8f4;
+}
+code .arrow_arg,
+code .brace {
+  color: #ffb700;
+}
+code .arrow {
+  font-weight: bold;
+  color: #ff5a5f;
+}
+code .param {
+  font-weight: bold;
+  color: #76c893;
+}
+code .comment {
+  color: #adb5bd;
+}
+
+/*# sourceMappingURL=index.css.map */
