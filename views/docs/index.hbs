@@ -19,38 +19,42 @@
     </h3>
 
     <div class="list-container">
-        <ul class="list">
-            <a href="#requirements">
-                Requirements
-                <ion-icon name="chevron-forward-outline"></ion-icon>
-            </a>
-            <a href="#usages">
-                Usages
-                <ion-icon name="chevron-forward-outline"></ion-icon>
-            </a>
+        <div class="left">
+            <ul class="list">
+                <a href="#requirements">
+                    Requirements
+                </a>
+                <a href="#examples">
+                    Example
+                </a>
+                <a href="#return">
+                    Return
+                </a>
+                <button type="button" onclick="toggleSubmenu(this);">
+                    Usages
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                </button>
+            </ul>
+        </div>
+        <div class="right">
             <ul class="list">
                 <a href="#all">
                     Get All
-                    <ion-icon name="chevron-forward-outline"></ion-icon>
                 </a>
                 <a href="#id">
                     Get by: ID
-                    <ion-icon name="chevron-forward-outline"></ion-icon>
                 </a>
                 <a href="#name">
                     Get by: Group name
-                    <ion-icon name="chevron-forward-outline"></ion-icon>
                 </a>
                 <a href="#member">
                     Get by: Member name
-                    <ion-icon name="chevron-forward-outline"></ion-icon>
                 </a>
                 <a href="#date">
                     Get by: Creation date
-                    <ion-icon name="chevron-forward-outline"></ion-icon>
                 </a>
             </ul>
-        </ul>
+        </div>
     </div>
 
     <div class="separator"></div>
@@ -60,7 +64,7 @@
         Requirements
     </h3>
 
-    {{#if logged}}
+    {{#if token}}
     <p>You only need to have your token to use this API.</p>
     <button type="button" class="button" onclick="copyToken(this, '{{token}}')">
         <ion-icon name="clipboard-outline"></ion-icon>
@@ -77,6 +81,88 @@
 
     <div class="separator"></div>
 
+    <h3 class="title-3" id="examples">
+        <ion-icon name="code-outline"></ion-icon>
+        Example
+    </h3>
+
+    <p>Here is an example of a request to the API in <code class="inline">JavaScript</code> and <code class="inline">Python</code>.</p>
+
+    <div class="code-list">
+        
+        <div class="code">
+            <h4 class="title-4">
+                <ion-icon name="logo-javascript"></ion-icon>
+                JavaScript
+            </h4>
+            <code class="stretch"><span class="func_name">fetch</span><span class="bracket">(</span><span class="quote">"</span><span class="func_param">https://10.107.1.14/api/artists/<span class="param">{token}</span>"</span><span class="bracket">)</span>
+    <span class="func_name">.then</span><span class="brace">(</span><span class="bracket">(</span><span class="arrow_arg">response</span><span class="bracket">)</span><span class="arrow"> => </span><span class="arrow_arg">response</span>.<span class="func_name">json()</span><span class="brace">)</span>
+    <span class="func_name">.then</span><span class="brace">(</span><span class="bracket">(</span><span class="arrow_arg">data</span><span class="bracket">)</span><span class="arrow"> => </span><span class="brace">{</span>
+        <span class="comment">// do your stuff...</span>
+    <span class="brace">}</span><span class="bracket">)</span>;</code>
+
+        </div>
+
+        <div class="code">
+            <h4 class="title-4">
+                <ion-icon name="logo-python"></ion-icon>
+                Python
+            </h4>
+            <code class="stretch"><span class="import">import</span> <span class="func_name">requests</span>
+<span class="import">import</span> <span class="func_name">json</span>
+
+<span class="func_param">res</span> <span class="import">=</span> <span class="func_name">requests.get(<span class="quote">"<span class="param">{url}</span>"</span>)</span>
+<span class="func_param">data</span> <span class="import">=</span> <span class="func_name">json.loads(</span><span class="func_param">res</span>.text<span class="bracket">)</span>
+<span class="comment"># do your stuff...</span></code>
+        </div>
+
+    </div>
+
+    <div class="separator"></div>
+
+    <h3 class="title-3" id="examples">
+        <ion-icon name="code-working-outline"></ion-icon>
+        Return
+    </h3>
+    <code class="stretch"><span class="brace">[</span>
+    <span class="brace">{</span>
+        <span class="quote">"id"</span>: <span class="bracket">1</span>,
+        <span class="quote">"image"</span>: <span class="quote">"<a href="https://10.107.1.14/images/1.jpeg" target="_blank" class="link">https://10.107.1.14/images/1.jpeg</a>"</span>,
+        <span class="quote">"name"</span>: <span class="quote">"Queen"</span>,
+        <span class="quote">"creationDate"</span>: <span class="bracket">1970</span>,
+        <span class="quote">"firstAlbum"</span>: <span class="quote">"14-12-1973"</span>,
+        <span class="quote">"members"</span>: <span class="brace">[</span>
+            <span class="quote">"Freddie Mercury"</span>,
+            <span class="quote">"Brian May"</span>,
+            <span class="quote">"John Deacon"</span>
+            <span class="quote">"Roger Meddows-Taylor"</span>,
+            <span class="quote">"Mike Grose"</span>,
+            <span class="quote">"Barry Mitchell"</span>,
+            <span class="quote">"Doug Fogie"</span>
+        <span class="brace">]</span>
+    <span class="brace">}</span>,
+    <span class="brace">{</span>
+        <span class="quote">"id"</span>: <span class="bracket">2</span>,
+        <span class="quote">"image"</span>: <span class="quote">"<a href="https://10.107.1.14/images/2.jpeg" target="_blank" class="link">https://10.107.1.14/images/2.jpeg</a>"</span>,
+        <span class="quote">"name"</span>: <span class="quote">"SOJA"</span>,
+        <span class="quote">"creationDate"</span>: <span class="bracket">1997</span>,
+        <span class="quote">"firstAlbum"</span>: <span class="quote">"05-06-2002"</span>,
+        <span class="quote">"members"</span>: <span class="brace">[</span>
+            <span class="quote">"Jacob Hemphill"</span>,
+            <span class="quote">"Bob Jefferson"</span>,
+            <span class="quote">"Ryan \"Byrd\" Berty"</span>,
+            <span class="quote">"Ken Brownell"</span>,
+            <span class="quote">"Patrick O'Shea"</span>,
+            <span class="quote">"Hellman Escorcia"</span>,
+            <span class="quote">"Rafael Rodriguez"</span>,
+            <span class="quote">"Trevor Young"</span>
+        <span class="brace">]</span>
+    <span class="brace">}</span>,
+    <span class="comment">...</span>
+<span class="brace">]</span></code>
+
+    <div class="separator"></div>
+
     <h3 class="title-3" id="usages">
         <ion-icon name="list-outline"></ion-icon>
         Usages
@@ -84,23 +170,109 @@
 
     <div class="grid">
 
-        <div class="card">
-            <h4 class="title-4" id="all">
-                <ion-icon name="grid-outline"></ion-icon>
-                Get All
-            </h4>
-            <p>Get all groups without exceptions.</p>
-            <code class="stretch">
-<span class="func_name">fetch</span><span class="bracket">(</span><span class="quote">"</span><span class="func_param">https://10.107.1.14/api/artists/<span class="param">{token}</span>"</span><span class="bracket">)</span>
-<span class="func_name">.then</span><span class="brace">(</span><span class="bracket">(</span><span class="arrow_arg">response</span><span class="bracket">)</span><span class="arrow"> => </span><span class="arrow_arg">response</span>.<span class="func_name">json()</span><span class="brace">)</span>
-<span class="func_name">.then</span><span class="brace">(</span><span class="bracket">(</span><span class="arrow_arg">data</span><span class="bracket">)</span><span class="arrow"> => </span><span class="brace">{</span>
-    <span class="comment"># do your stuff...</span>
-<span class="brace">}</span><span class="bracket">)</span>;
-            </code>
+        <div class="col">
+            <div class="card">
+                <h4 class="title-4" id="all">
+                    <ion-icon name="grid-outline"></ion-icon>
+                    Get All
+                </h4>
+                <p>Get all groups without exceptions.</p>
+                <code class="stretch">https://10.107.1.14/api/artists/<span class="param">{token}</span></code>
+                <p class="params-title">Parameters</p>
+                <ul class="params">
+                    <li>
+                        <p class="param">token</p>
+                        <span class="description">: Your token</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4 class="title-4" id="name">
+                    <ion-icon name="grid-outline"></ion-icon>
+                    Get by: Group name
+                </h4>
+                <p>Get group matching the group name.</p>
+                <code class="stretch">https://10.107.1.14/api/artists/name/<span class="param">{name}</span>/<span class="param">{token}</span></code>
+                <p class="params-title">Parameters</p>
+                <ul class="params">
+                    <li>
+                        <p class="param">name</p>
+                        <span class="description">: The group name, partial or incomplete (e.g "Queen" or "Que")</span>
+                    </li>
+                    <li>
+                        <p class="param">token</p>
+                        <span class="description">: Your token</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="card">
+                <h4 class="title-4" id="date">
+                    <ion-icon name="grid-outline"></ion-icon>
+                    Get by: Creation date
+                </h4>
+                <p>Get group matching the group creation date.</p>
+                <code class="stretch">https://10.107.1.14/api/artists/creation/<span class="param">{date}</span>/<span class="param">{token}</span></code>
+                <p class="params-title">Parameters</p>
+                <ul class="params">
+                    <li>
+                        <p class="param">date</p>
+                        <span class="description">: The creation year of the group, partial or incomplete (e.g "1970" or "19")</span>
+                    </li>
+                    <li>
+                        <p class="param">token</p>
+                        <span class="description">: Your token</span>
+                    </li>
+                </ul>
+            </div>
         </div>
-
+        <div class="col">
+            <div class="card">
+                <h4 class="title-4" id="id">
+                    <ion-icon name="grid-outline"></ion-icon>
+                    Get by: ID
+                </h4>
+                <p>Get group matching specified ID.</p>
+                <code class="stretch">https://10.107.1.14/api/artists/id/<span class="param">{id}</span>/<span class="param">{token}</span></code>
+                <p class="params-title">Parameters</p>
+                <ul class="params">
+                    <li>
+                        <p class="param">id</p>
+                        <span class="description">: The group ID</span>
+                    </li>
+                    <li>
+                        <p class="param">token</p>
+                        <span class="description">: Your token</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h4 class="title-4" id="member">
+                    <ion-icon name="grid-outline"></ion-icon>
+                    Get by: Member name
+                </h4>
+                <p>Get group matching a member name.</p>
+                <code class="stretch">https://10.107.1.14/api/artists/id/<span class="param">{name}</span>/<span class="param">{type}</span>/<span class="param">{token}</span></code>
+                <p class="params-title">Parameters</p>
+                <ul class="params">
+                    <li>
+                        <p class="param">name</p>
+                        <span class="description">: The member name, partial or incomplete (e.g "Freddie" or "Fre")</span>
+                    </li>
+                    <li>
+                        <p class="param">type</p>
+                        <span class="description">: Type of search. Can be : "start", "end" or "contain"</span>
+                    </li>
+                    <li>
+                        <p class="param">token</p>
+                        <span class="description">: Your token</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 
 </div>
 
+<script src="/js/docs.js"></script>
 <script src="/js/index.js"></script>
