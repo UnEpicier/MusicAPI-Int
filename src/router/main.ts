@@ -38,7 +38,6 @@ router.get("/", async (req: Request, res: Response) => {
 						.then((data) => {
 							return res.render("pages/index", {
 								title: "Music API",
-								host: url,
 								logged: true,
 								token: rows[0].token,
 								data: data,
@@ -52,7 +51,6 @@ router.get("/", async (req: Request, res: Response) => {
 						.then((data) => {
 							return res.render("pages/index", {
 								title: "Music API",
-								host: url,
 								data: data,
 							});
 						});
@@ -67,7 +65,6 @@ router.get("/", async (req: Request, res: Response) => {
 			.then((data) => {
 				return res.render("pages/index", {
 					title: "Music API",
-					host: url,
 					data: data,
 				});
 			});
@@ -101,7 +98,6 @@ router.post("/", async (req: Request, res: Response) => {
 			.then((data) => {
 				res.render("pages/index", {
 					title: "Music API",
-					host: url,
 					data: data,
 				});
 			});
@@ -114,7 +110,6 @@ router.post("/", async (req: Request, res: Response) => {
 				.then((data) => {
 					return res.render("pages/index", {
 						title: "Music API",
-						host: url,
 						logged: logged,
 						data: data,
 					});
@@ -127,7 +122,6 @@ router.post("/", async (req: Request, res: Response) => {
 				.then((data) => {
 					return res.render("pages/index", {
 						title: "Music API",
-						host: url,
 						logged: logged,
 						data: data,
 					});
@@ -140,7 +134,6 @@ router.post("/", async (req: Request, res: Response) => {
 				.then((data) => {
 					return res.render("pages/index", {
 						title: "Music API",
-						host: url,
 						logged: logged,
 						data: data,
 					});
@@ -148,7 +141,6 @@ router.post("/", async (req: Request, res: Response) => {
 		} else {
 			return res.render("pages/index", {
 				title: "Music API",
-				host: url,
 				logged: logged,
 				data: null,
 			});
